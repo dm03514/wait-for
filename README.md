@@ -153,27 +153,15 @@ $ echo $?
 ### MySQL
 
 ```
-$ ./bin/wait-for --help
+$ ./bin/wait-for mysql --help
   NAME:
-     wait-for - wait for a service to become available
+     wait-for mysql -
   
   USAGE:
-     wait-for [global options] command [command options] [arguments...]
+     wait-for mysql [command options] [arguments...]
   
-  VERSION:
-     0.0.0
-  
-  COMMANDS:
-       http
-       mysql
-       postgres
-       help, h   Shows a list of commands or help for one command
-  
-  GLOBAL OPTIONS:
-     --timeout value, -t value          duration to wait until marking as failure and returning (default: 5m0s)
-     --poll-interval value, --pi value  interval (default: 100ms)
-     --help, -h                         show help
-     --version, -v                      print the version
+  OPTIONS:
+     --connection-string value, --cs value  mysql connection string [$WAIT_FOR_MYSQL_CONNECTION_STRING] 
 ```
 
 #### Success
