@@ -18,6 +18,7 @@ VERSION:
 
 COMMANDS:
      http
+     postgres
      help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
