@@ -78,26 +78,40 @@ OPTIONS:
     1
     ```
     
- ### Postgres
+### Postgres
+
+```
+$ ./bin/wait-for postgres --help
+NAME:
+   wait-for postgres -
+
+USAGE:
+   wait-for postgres [command options] [arguments...]
+
+OPTIONS:
+   --connection-string value, --cs value  psql connection string [$WAIT_FOR_POSTGRES_CONNECTION_STRING]
+```
  
 #### Success
 
 - Start polling while no postgres available 
-    ```
-    $ export WAIT_FOR_POSTGRES_CONNECTION_STRING=postgresql://root:root@localhost/test?sslmode=disable
-    $ ./wait-for --poll-interval 1s postgres
-    {"level":"info","msg":"polling","time":"2018-08-28T13:06:47Z"}
-    {"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:47Z"}
-    ```
+
+```
+$ export WAIT_FOR_POSTGRES_CONNECTION_STRING=postgresql://root:root@localhost/test?sslmode=disable
+$ ./wait-for --poll-interval 1s postgres
+{"level":"info","msg":"polling","time":"2018-08-28T13:06:47Z"}
+{"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:47Z"}
+```
  
 - Start postgres
-    ```
-    $ docker-compose down && docker-compose up
-    ```
+
+```
+$ docker-compose down && docker-compose up
+```
     
 - Output from `wait-for` as compose comes up
 
-    ```
+```
  {"level":"info","msg":"polling","time":"2018-08-28T13:06:48Z"}
  {"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:48Z"}
  {"level":"info","msg":"polling","time":"2018-08-28T13:06:49Z"}
@@ -115,7 +129,7 @@ OPTIONS:
  
  $ echo $?
    0
-     ```
+```
 
 #### Failure
 
