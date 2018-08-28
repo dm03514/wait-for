@@ -1,3 +1,6 @@
+# github.com/lib/pq v1.0.0
+github.com/lib/pq
+github.com/lib/pq/oid
 # github.com/sirupsen/logrus v1.0.6
 github.com/sirupsen/logrus
 # github.com/urfave/cli v1.20.0

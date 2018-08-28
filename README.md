@@ -77,6 +77,60 @@ OPTIONS:
     $ echo $?
     1
     ```
+    
+ ### Postgres
+ 
+#### Success
 
+- Start polling while no postgres available 
+    ```
+    $ export WAIT_FOR_POSTGRES_CONNECTION_STRING=postgresql://root:root@localhost/test?sslmode=disable
+    $ ./wait-for --poll-interval 1s postgres
+    {"level":"info","msg":"polling","time":"2018-08-28T13:06:47Z"}
+    {"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:47Z"}
+    ```
+ 
+- Start postgres
+    ```
+    $ docker-compose down && docker-compose up
+    ```
+    
+- Output from `wait-for` as compose comes up
 
+    ```
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:48Z"}
+ {"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:48Z"}
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:49Z"}
+ {"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:49Z"}
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:50Z"}
+ {"err":"read tcp 127.0.0.1:54470-\u003e127.0.0.1:5432: read: connection reset by peer","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:51Z"}
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:51Z"}
+ {"err":"EOF","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:51Z"}
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:52Z"}
+ {"err":"EOF","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:52Z"}
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:53Z"}
+ {"err":"EOF","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:06:53Z"}
+ {"level":"info","msg":"polling","time":"2018-08-28T13:06:54Z"}
+ {"err":null,"level":"debug","msg":"poll_result","ready":true,"time":"2018-08-28T13:06:54Z"}
+ 
+ $ echo $?
+   0
+     ```
+
+#### Failure
+
+```
+$ ./bin/wait-for --poll-interval 500ms -t 1s postgres
+{"level":"info","msg":"polling","time":"2018-08-28T13:10:53Z"}
+{"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:10:53Z"}
+{"level":"info","msg":"polling","time":"2018-08-28T13:10:54Z"}
+{"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:10:54Z"}
+{"level":"info","msg":"polling","time":"2018-08-28T13:10:54Z"}
+{"err":"dial tcp 127.0.0.1:5432: connect: connection refused","level":"debug","msg":"poll_result","ready":false,"time":"2018-08-28T13:10:54Z"}
+{"level":"info","msg":"timeout_reached","time":"2018-08-28T13:10:54Z"}
+{"level":"fatal","msg":"timeout reached: 1s","time":"2018-08-28T13:10:54Z"}
+
+$ echo $?
+1
+```
 

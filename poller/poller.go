@@ -2,8 +2,9 @@ package poller
 
 import (
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"time"
+
+	log "github.com/sirupsen/logrus"
 )
 
 // CheckReadyFn is configurable by the caller and will be executed on the
@@ -29,6 +30,12 @@ func (p Poller) WaitReady() error {
 		log.WithFields(log.Fields{}).Info("polling")
 
 		ready, err := p.CheckReady()
+
+		log.WithFields(log.Fields{
+			"ready": ready,
+			"err":   err,
+		}).Debug("poll_result")
+
 		if p.FailFast && err != nil {
 			return err
 		}

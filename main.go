@@ -28,6 +28,7 @@ func main() {
 	app.Usage = "wait for a service to become available"
 	app.Commands = []cli.Command{
 		cmd.HTTPCommand,
+		cmd.PostgresCommand,
 	}
 	app.Flags = []cli.Flag{
 		cli.DurationFlag{
