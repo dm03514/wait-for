@@ -1,11 +1,12 @@
 package main
 
 import (
+	"os"
+	"time"
+
 	"github.com/dm03514/wait-for/cmd"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
-	"os"
-	"time"
 )
 
 func init() {
@@ -44,5 +45,6 @@ func main() {
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
+		os.Exit(1)
 	}
 }
