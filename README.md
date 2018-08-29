@@ -30,21 +30,9 @@ GLOBAL OPTIONS:
    --version, -v                      print the version
 ```
 
+## Quickstart HTTP
 
-## Documentation Contents
-
-### Protocols
-- [HTTP](https://github.com/dm03514/wait-for/wiki/HTTP)
-- [TCP/UDP](https://github.com/dm03514/wait-for/wiki/TCP-UDP)
-
-### Applications
-- [MySQL](https://github.com/dm03514/wait-for/wiki/MySQL)
-- [Postgres](https://github.com/dm03514/wait-for/wiki/Postgres)
-
-
-### Quickstart HTTP
-
-#### Success
+### Success
 
     ```
     $ ./wait-for http --url=http://google.com/
@@ -55,7 +43,7 @@ GLOBAL OPTIONS:
     0
     ```
 
-#### Timeout Reached
+### Timeout Reached
 
     ```
     $ ./wait-for -t 500ms http --url=http://www.google.com/1/2
@@ -78,3 +66,12 @@ GLOBAL OPTIONS:
     1
     ```
 
+## Documentation Contents
+
+### Protocols
+- [HTTP](https://github.com/dm03514/wait-for/wiki/HTTP)
+- [TCP/UDP](https://github.com/dm03514/wait-for/wiki/TCP-UDP)
+
+### Applications
+- [MySQL](https://github.com/dm03514/wait-for/wiki/MySQL)
+- [Postgres](https://github.com/dm03514/wait-for/wiki/Postgres)
