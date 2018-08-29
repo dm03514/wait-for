@@ -2,9 +2,7 @@
 A Layer 7 (Application) aware way to detect when services are fully initialized.
 
 ## [Overview](https://medium.com/dm03514-tech-blog/ci-testing-remove-docker-initialization-race-conditions-96caa159bd86)
-Reliable integration and service tests require accurately detecting when services are fully initialized before beginning test execution.  
-While solutions like wait-for-it.sh can reliably detect when services are listening and able to receive connections many services require a deeper check.  
-`wait-for` provides application specific detection for service initialization.
+Reliable integration and service tests require accurately detecting when services are fully initialized before beginning test execution.  While solutions like wait-for-it.sh can reliably detect when services are listening and able to receive connections many services require a deeper check.  `wait-for` provides application specific detection for service initialization.
 
 ![alt text](./doc/wait-for-check-level.png "wait-for-it.sh vs wait-for")
 
