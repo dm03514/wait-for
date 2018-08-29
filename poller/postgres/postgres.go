@@ -1,4 +1,4 @@
-package poller
+package postgres
 
 import (
 	"database/sql"
@@ -10,7 +10,7 @@ type Postgres struct {
 	db *sql.DB
 }
 
-func NewPostgres(connectionString string) (Postgres, error) {
+func New(connectionString string) (Postgres, error) {
 	db, err := sql.Open("postgres", connectionString)
 	if err != nil {
 		return Postgres{}, err

@@ -1,4 +1,4 @@
-package poller
+package mysql
 
 import (
 	"database/sql"
@@ -10,7 +10,7 @@ type MySQL struct {
 	db *sql.DB
 }
 
-func NewMySQL(connectionString string) (MySQL, error) {
+func New(connectionString string) (MySQL, error) {
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
 		return MySQL{}, nil

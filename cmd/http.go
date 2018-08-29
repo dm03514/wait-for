@@ -2,13 +2,14 @@ package cmd
 
 import (
 	"github.com/dm03514/wait-for/poller"
+	"github.com/dm03514/wait-for/poller/http"
 	"github.com/urfave/cli"
 )
 
 var HTTPCommand = cli.Command{
 	Name: "http",
 	Action: func(c *cli.Context) error {
-		h, err := poller.NewHTTP(
+		h, err := http.New(
 			c.String("method"),
 			c.String("url"),
 			c.String("body"),

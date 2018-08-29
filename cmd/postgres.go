@@ -2,13 +2,14 @@ package cmd
 
 import (
 	"github.com/dm03514/wait-for/poller"
+	"github.com/dm03514/wait-for/poller/postgres"
 	"github.com/urfave/cli"
 )
 
 var PostgresCommand = cli.Command{
 	Name: "postgres",
 	Action: func(c *cli.Context) error {
-		postgres, err := poller.NewPostgres(
+		postgres, err := postgres.New(
 			c.String("connection-string"),
 		)
 		if err != nil {
