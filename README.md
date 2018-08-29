@@ -1,5 +1,5 @@
 # wait-for
-Detect when services are fully initialized.
+A Level 7 (Application) aware way to detect when services are fully initialized.
 
 ## [Overview](https://medium.com/dm03514-tech-blog/ci-testing-remove-docker-initialization-race-conditions-96caa159bd86)
 
