@@ -98,3 +98,4 @@ GLOBAL OPTIONS:
 ### Applications
 - [MySQL](https://github.com/dm03514/wait-for/wiki/MySQL)
 - [Postgres](https://github.com/dm03514/wait-for/wiki/Postgres)
+

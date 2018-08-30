@@ -1,4 +1,4 @@
-package poller
+package http
 
 import (
 	"fmt"
@@ -17,7 +17,7 @@ type HTTP struct {
 	client http.Client
 }
 
-func NewHTTP(method string, fullURL string, body string) (HTTP, error) {
+func New(method string, fullURL string, body string) (HTTP, error) {
 	u, err := url.Parse(fullURL)
 	if err != nil {
 		return HTTP{}, err
