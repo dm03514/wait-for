@@ -29,6 +29,7 @@ func main() {
 	app.Commands = []cli.Command{
 		cmd.HTTPCommand,
 		cmd.MySQLCommand,
+		cmd.NetCommand,
 		cmd.PostgresCommand,
 	}
 	app.Flags = []cli.Flag{
