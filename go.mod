@@ -1,6 +1,7 @@
 module github.com/dm03514/wait-for
 
 require (
+	github.com/go-redis/redis v6.14.1+incompatible
 	github.com/go-sql-driver/mysql v1.4.0
 	github.com/lib/pq v1.0.0
 	github.com/sirupsen/logrus v1.0.6
