@@ -31,6 +31,7 @@ func main() {
 		cmd.MySQLCommand,
 		cmd.NetCommand,
 		cmd.PostgresCommand,
+		cmd.RedisCommand,
 	}
 	app.Flags = []cli.Flag{
 		cli.DurationFlag{
